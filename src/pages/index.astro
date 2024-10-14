@@ -1,16 +1,131 @@
----
 
----
+<!DOCTYPE html>
+<html lang="en" >
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<head>
+  <meta charset="UTF-8">
+  
+  
+  
+
+  <title>CodePen - Untitled</title>
+
+    <link rel="canonical" href="https://codepen.io/irksum/pen/JjgWoMQ">
+  
+  
+  
+  
+<style>
+html {
+background:#333;
+
+}
+* {
+  box-sizing: border-box;
+}
+de-animator {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1em auto 1em;
+  overflow: hidden;
+}
+de-animator::before,
+de-animator::after {
+  content:'';
+  display: block;
+  height: 1rem;
+  background: black;
+  grid-column: 1;
+  border: 2px solid red;
+}
+de-animator::before {
+  border-top-left-radius:1rem;
+  border-top-right-radius:1rem;
+  view-transition-name:top; 
+  grid-row: 1;
+  border-bottom: 0;
+}
+de-animator::after {
+  border-bottom-left-radius:1rem;
+  border-bottom-right-radius:1rem;
+  view-transition-name:bottom;
+  grid-row: 3;
+  border-top: 0;
+  margin-top: -1px;
+}
+b {
+  background: black;
+  border-left: 2px solid red;
+  border-right: 2px solid red;
+  display: block;
+  grid-column: 1;
+  grid-row: 2;
+  height: 100%;
+  view-transition-name: middle;
+  width: 100%;
+}
+::view-transition-old(middle),
+::view-transition-new(middle) {
+  height: 100%;
+}
+details {
+  z-index: 1;
+  grid-row: 1 / span 2;
+  grid-column: 1;
+  color: white;
+/*   opacity: 0; */
+}
+details div {
+  view-transition-name: text;
+}
+summary {
+  view-transition-name: summary;
+  padding: 1em;
+}
+div {
+ padding: 1em;
+opacity: 0;
+}
+aside {
+  height: 15rem;
+  width: 15rem;
+  background: red;
+  view-transition-name: aside;
+}
+</style>
+
+  
+  
+  
+</head>
+
+<body>
+  <de-animator>
+  <b></b>
+  <details>
+  <summary>Summary</summary>
+  <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae, deserunt? Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, cupiditate. Rem, asperiores! Ipsa dolores dicta obcaecati ex praesentium reprehenderit reiciendis quidem a rem dignissimos voluptas alias sequi earum facilis tenetur, tempore quibusdam porro quis. Praesentium odit odio expedita nulla illo aliquid consequuntur delectus corrupti ratione deserunt dolorum id facilis, assumenda commodi non labore sequi culpa maiores voluptates harum minima. Quo, optio autem sit nulla non iste, asperiores sequi sed consequatur rem saepe voluptate quas? Nisi, aut porro aliquid possimus quasi aspernatur ipsum tenetur ipsa iusto iste vel placeat molestias esse assumenda culpa doloribus animi recusandae. Dolore laborum officiis similique reprehenderit ut, officia veniam facilis facere ullam commodi, fugiat nihil nulla esse. Consequuntur dicta repellendus debitis quod labore, harum deleniti velit numquam commodi earum tenetur atque doloribus tempora? Facere, repellendus a autem recusandae, commodi ipsum deleniti ratione necessitatibus pariatur qui quae suscipit veritatis! Veniam itaque iure voluptates, dolorem illum possimus consequatur quo omnis at hic doloremque corporis et aut impedit ab nulla eligendi deserunt laborum officiis quaerat voluptate distinctio totam earum. Distinctio tempora consequatur eum aut laudantium id dolorem natus rerum ducimus adipisci. Sequi exercitationem eos voluptas cumque! Esse reprehenderit doloribus nam, modi qui velit unde facere similique cum minima recusandae aspernatur doloremque eaque a eligend</div>
+</details>
+</de-animator>
+<aside></aside>
+  
+      <script id="rendered-js" >
+const summary = document.querySelector('summary')
+const details = document.querySelector('details')
+
+summary.addEventListener('click',evevent =>{
+  if(document.startViewTransition){
+    
+    event.preventDefault();
+    document.startViewTransition(()=>{
+      details.open = !details.open
+    })
+  }
+  
+})
+    </script>
+
+  
+</body>
+
 </html>
